@@ -1,0 +1,19 @@
+<div class="container h-100">
+  <div class="row h-100 ali align-items-center  ">
+    <div class="col-sm-12 " >
+      <form [formGroup]="formGroup">
+      <ion-item>
+        <ion-label position="floating">Enter UserName</ion-label>
+        <ion-input type="text" formControlName="userNm"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Enter Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="col-sm-12 text-center">
+<ion-button (click)="submit()" [disabled]='!this.formGroup.valid'>Submit</ion-button>  
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

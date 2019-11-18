@@ -1,14 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<div class="container h-100">
+  <div class="row h-100  align-items-center">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-6" *ngFor="let single of HomepageMenu" (click)="routing(single.url)">
+          <div class="item-container">
+            <img class="m-3 ml-5 " src="../../assets/images/{{single.ImagePath}}" alt="check-in" width="65px"
+              height="75px">
+            <p class="text-center">{{single.title}}</p>
+          </div>
+        </div>
+        <!-- <div class="col-6">
+          <div class="item-container">
+            <img class="m-3 ml-5"  src="../../assets/images/check-in.svg" alt="check-out" width="65px" height="75px">
+            <p class="text-center"> Check out</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-6">
+            <div class="item-container" >
+              <img class="m-3 ml-5 " src="../../assets/images/settings.svg" alt="check-in" width="65px" height="75px">
+              <p class="text-center"> Settings</p>
+            </div>
+          </div> 
+          <div class="col-6"> 
+            <div class="item-container">
+              <img class="m-3 ml-5"  src="../../assets/images/check-attendance.svg" alt="check-out" width="65px" height="75px">
+              <p class="text-center"> Check Attendance</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
   </div>
-</ion-content>
