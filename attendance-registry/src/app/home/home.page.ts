@@ -25,7 +25,7 @@ export class HomePage  {
         ImagePath: 'check-in.svg',
         url:'settings'
       }, {
-        title: "Check Attendance",
+        title: "Hr Register",
         ImagePath: 'check-in.svg',
         url:'attendance'
       }
