@@ -9,14 +9,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, 
+  imports: [BrowserModule,
     ReactiveFormsModule,
-    IonicModule.forRoot(), 
-    AppRoutingModule],
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    MatButtonModule,
+    MatTabsModule,
+    BrowserAnimationsModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -24,4 +29,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
