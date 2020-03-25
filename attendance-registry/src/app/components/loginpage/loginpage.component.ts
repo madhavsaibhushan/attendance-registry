@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loginpage',
@@ -7,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoginpageComponent implements OnInit {
   @Input('type') type: any
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() { 
-    
+  ngOnInit() {
+
   }
+  login(type) {
+    if (type === 'employee') {
+      this.router.navigate(['checkin'])
+    }
+  } 
 
 }

@@ -1,5 +1,7 @@
 {
   "name": "attendance-registry",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

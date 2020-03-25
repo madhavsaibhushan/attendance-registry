@@ -8,6 +8,7 @@ import {MatButtonModule} from '@angular/material'
 
 import { HomePage } from './home.page';
 import { LoginpageComponent } from '../components/loginpage/loginpage.component';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { LoginpageComponent } from '../components/loginpage/loginpage.component'
       }
     ])
   ],
-  declarations: [HomePage,LoginpageComponent]
+  declarations: [HomePage,LoginpageComponent],
+  providers:[FingerprintAIO]
 })
 export class HomePageModule {}

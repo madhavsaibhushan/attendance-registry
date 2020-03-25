@@ -4,7 +4,7 @@ import { CheckInComponent } from './check-in.component';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import  {FingerprintAIO} from '@ionic-native/fingerprint-aio/ngx'
 export const routes: Routes = [
   {
     path: '',
@@ -20,6 +20,8 @@ export const routes: Routes = [
     IonicModule,
     ReactiveFormsModule
   ],
-  exports: [CheckInComponent]
+  exports: [CheckInComponent],
+  providers:[FingerprintAIO]
 })
 export class CheckInModule { }
+ 
