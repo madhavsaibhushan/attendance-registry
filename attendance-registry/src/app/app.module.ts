@@ -11,9 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
-import {MatTabsModule} from '@angular/material';
+import { MatTabsModule } from '@angular/material';
+import { HrMenuComponent } from './components/hr-components/hr-menu/hr-menu.component';
+import { AddUserComponent } from './components/hr-components/add-user/add-user.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+  ],
   entryComponents: [],
   imports: [BrowserModule,
     ReactiveFormsModule,

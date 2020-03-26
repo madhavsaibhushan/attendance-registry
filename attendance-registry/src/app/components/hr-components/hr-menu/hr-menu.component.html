@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row " *ngFor="let menu of listOfMenuOptions">
+    <div class="col-sm-12 pl-0 pr-0">
+      <div class="menu-item">
+        <!-- <p>
+          {{menu.title}} <span class="ico-right"><i class="fa fa-angle-right" style="font-size:24px"></i></span>
+        </p> -->
+        <ion-button expand="full" fill='' (click)="routeToPage(menu.title)">{{menu.title}}
+          <span class="ico-right"><i class="fa fa-angle-right" style="font-size:24px"></i></span></ion-button>
+      </div>
+    </div>
+  </div>
+
+</div>

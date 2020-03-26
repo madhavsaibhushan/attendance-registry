@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {MatTabsModule} from '@angular/material'
-import {MatButtonModule} from '@angular/material'
+import { MatTabsModule } from '@angular/material'
+import { MatButtonModule } from '@angular/material'
 
 import { HomePage } from './home.page';
 import { LoginpageComponent } from '../components/loginpage/loginpage.component';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { HrMenuComponent } from '../components/hr-components/hr-menu/hr-menu.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
       }
     ])
   ],
-  declarations: [HomePage,LoginpageComponent],
-  providers:[FingerprintAIO]
+  declarations: [
+    HomePage, LoginpageComponent],
+  providers: [FingerprintAIO]
 })
-export class HomePageModule {}
+export class HomePageModule { }

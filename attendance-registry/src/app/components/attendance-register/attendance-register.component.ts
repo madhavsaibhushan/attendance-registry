@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attendance-register',
@@ -7,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttendanceRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initTimer();
+  }
+
+  goBack() {
+    this.router.navigate(['home'])
+  }
+
+  initTimer() {
+    setTimeout(() => {
+      this.goBack()
+    }, 10000)
+  }
 
 }

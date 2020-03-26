@@ -1,0 +1,44 @@
+<ion-header class="">
+  <ion-toolbar>
+    <ion-title>Fill up Employee Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="formGroup">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 p-0 mb-2">
+          <ion-item>
+            <ion-label position="floating">Employee Name</ion-label>
+            <ion-input formControlName="empName"></ion-input>
+          </ion-item>
+        </div>
+        <div class="col-sm-12 p-0 mb-2">
+          <ion-item>
+            <ion-label position="floating">Employee Code</ion-label>
+            <ion-input formControlName="empCode"></ion-input>
+          </ion-item>
+        </div>
+        <div class="col-sm-12 p-0 mb-2">
+          <ion-item>
+            <ion-label position="floating">Employee Department</ion-label>
+            <ion-select formControlName="empDepartment"></ion-select>
+          </ion-item>
+        </div>
+        <div class="col-sm-12 p-0 mb-2">
+          <ion-item>
+            <ion-label position="floating">Date of Joining</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2014-12-09" formControlName="empDoj">
+            </ion-datetime>
+          </ion-item>
+        </div>
+        <div class="col-sm-12 text-center m-5">
+          <ion-button [disabled]="formGroup.invalid">
+            Add Employee
+          </ion-button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</ion-content>

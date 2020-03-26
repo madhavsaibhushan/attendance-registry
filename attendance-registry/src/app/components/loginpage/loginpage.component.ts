@@ -27,6 +27,9 @@ export class LoginpageComponent implements OnInit {
     if (type === 'employee') {
       this.router.navigate(['attendance'])
     }
+    if (type === 'hr') {
+      this.router.navigate(['hr'])
+    }
   }
 
 }
