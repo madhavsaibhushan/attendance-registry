@@ -10,6 +10,8 @@ import { HomePage } from './home.page';
 import { LoginpageComponent } from '../components/loginpage/loginpage.component';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { HrMenuComponent } from '../components/hr-components/hr-menu/hr-menu.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../services/api.service';
 
 @NgModule({
   imports: [
@@ -19,6 +21,7 @@ import { HrMenuComponent } from '../components/hr-components/hr-menu/hr-menu.com
     MatTabsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    HttpClientModule,
     RouterModule.forChild([
       {
         path: '',
@@ -28,6 +31,6 @@ import { HrMenuComponent } from '../components/hr-components/hr-menu/hr-menu.com
   ],
   declarations: [
     HomePage, LoginpageComponent],
-  providers: [FingerprintAIO]
+  providers: [FingerprintAIO, ApiService]
 })
 export class HomePageModule { }

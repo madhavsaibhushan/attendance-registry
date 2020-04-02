@@ -7,6 +7,10 @@ import { AttendanceStatusComponent } from '../attendance-status/attendance-statu
 import { ReportComponent } from '../report/report.component';
 import { IonButton, IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeesListComponent } from '../employees-list/employees-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UtilService } from 'src/app/services/util-service.service';
+import { ApiService } from 'src/app/services/api.service';
 const routes: Routes = [{
   path: '',
   component: HrMenuComponent
@@ -22,8 +26,12 @@ const routes: Routes = [{
 {
   path: 'report',
   component: ReportComponent
+},
+{
+  path: 'employees-list',
+  component: EmployeesListComponent
 }
-  
+
 
 ]
 
@@ -32,14 +40,18 @@ const routes: Routes = [{
   declarations: [AttendanceStatusComponent,
     AddUserComponent,
     ReportComponent,
-    HrMenuComponent
+    HrMenuComponent,
+    EmployeesListComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forChild(routes),
     IonicModule.forRoot(),
 
-  ]
+  ],
+  providers:[UtilService,
+  ApiService]
 })
 export class HrModule { }

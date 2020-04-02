@@ -1,0 +1,56 @@
+<ion-content class="m-0">
+  <ion-virtual-scroll [items]="items" approxItemHeight="200px">
+    <ion-list *virtualItem="let item; let itemBounds = bounds;">
+      <div>
+      </div>
+      <ion-item class="p-0">
+
+        <div class="container-fluid p-0">
+          <div class="row">
+            <div class="col-12 ">
+              <div class="row">
+                <div class="col-2 ">
+                  <ion-avatar>
+                    <img [src]="imgSrc">
+                  </ion-avatar>
+                </div>
+                <div class="col-10">
+                  <div class="row mb-2">
+                    <div class="col-12">
+                      <p class="heading-name m-0 ml-2 mt-2">
+                        {{item.empName}}
+                      </p>
+                    </div>
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="row mt-3">
+                            <div class="col-6">
+                              <span class="mb-2 description">
+                                EmpId: {{item.empId}}
+                              </span>
+                            </div>
+                            <div class="col-6">
+                              <span class="mb-2 description">
+                                EmpDept: {{item.empDept}}
+                              </span>
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </ion-item>
+    </ion-list>
+  </ion-virtual-scroll>
+</ion-content>

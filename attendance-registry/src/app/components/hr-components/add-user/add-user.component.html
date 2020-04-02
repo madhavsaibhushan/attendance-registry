@@ -15,14 +15,16 @@
         </div>
         <div class="col-sm-12 p-0 mb-2">
           <ion-item>
-            <ion-label position="floating">Employee Code</ion-label>
-            <ion-input formControlName="empCode"></ion-input>
+            <ion-label position="floating">Employee ID</ion-label>
+            <ion-input formControlName="empId"></ion-input>
           </ion-item>
         </div>
         <div class="col-sm-12 p-0 mb-2">
           <ion-item>
             <ion-label position="floating">Employee Department</ion-label>
-            <ion-select formControlName="empDepartment"></ion-select>
+            <ion-select formControlName="empDept" >
+              <ion-select-option *ngFor="let each of departmentsList" [value]="each.name">{{each.name}}</ion-select-option>
+            </ion-select>
           </ion-item>
         </div>
         <div class="col-sm-12 p-0 mb-2">
@@ -32,8 +34,14 @@
             </ion-datetime>
           </ion-item>
         </div>
+        <div class="col-sm-12 p-0 mb-2">
+          <ion-item>
+            <ion-label position="floating">Employee password(For Logging In)</ion-label>
+            <ion-input formControlName="empPassword"></ion-input>
+          </ion-item>
+        </div>
         <div class="col-sm-12 text-center m-5">
-          <ion-button [disabled]="formGroup.invalid">
+          <ion-button [disabled]="formGroup.invalid" (click)="addEmployee()">
             Add Employee
           </ion-button>
         </div>

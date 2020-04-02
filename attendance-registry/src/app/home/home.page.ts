@@ -6,28 +6,28 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage  {
+export class HomePage {
   HomepageMenu = []
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
   ngOnInit() {
     this.HomepageMenu = [
       {
         title: "Check In",
         ImagePath: 'check-in.svg',
-        url:'checkin'
+        url: 'checkin'
       },
       {
         title: "Check Out",
         ImagePath: 'check-in.svg',
-        url:'checkin'
+        url: 'checkin'
       }, {
         title: "Settings",
         ImagePath: 'check-in.svg',
-        url:'settings'
+        url: 'settings'
       }, {
         title: "Hr Register",
         ImagePath: 'check-in.svg',
-        url:'attendance'
+        url: 'attendance'
       }
     ]
   }
@@ -36,6 +36,6 @@ export class HomePage  {
    * this methods gets the url from aarray and Navigates
    */
   routing(url) {
-this.router.navigate([`./${url}`])
+    this.router.navigate([`./${url}`])
   }
 }

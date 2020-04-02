@@ -17,10 +17,15 @@ export class HrMenuComponent implements OnInit {
     {
       title: 'Attendance Report'
     },
+    {
+      title:'List of Employess'
+    }
   ]
   constructor(private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(localStorage.getItem('token'),'token')
+   }
 
   routeToPage(pageName) {
     console.log(pageName)
@@ -34,6 +39,8 @@ export class HrMenuComponent implements OnInit {
       case this.listOfMenuOptions[2].title:
         this.router.navigate(['hr/report']);
         break;
+        case this.listOfMenuOptions[3].title:
+          this.router.navigate(['hr/employees-list'])
     }
   }
 }

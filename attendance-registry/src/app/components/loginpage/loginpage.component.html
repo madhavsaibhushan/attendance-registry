@@ -3,11 +3,11 @@
     <div class="row h-100 text-center mt-5">
       <div class="col-sm-12  h-100 justify-content-center align-content-center">
         <h3 class='d-block designation'> Hr Login </h3>
-        <form>
+        <form [formGroup]="employeeFormGroup">
           <label>Username</label>
-          <input type="text" class="form-control" placeholder="Enter Password">
+          <input type="text" class="form-control" placeholder="Enter Password " formControlName="empCode">
           <label>Password</label>
-          <input type="text" placeholder="Enter Password" class="form-control">
+          <input type="password" placeholder="Enter Password" class="form-control" formControlName="passCode">
           <button class="btn btn-warning mt-5" (click)="login('hr')">
             Login
           </button>
@@ -24,11 +24,11 @@
         <h3 class='d-block'> Employee Login </h3>
         <form [formGroup]='employeeFormGroup'>
           <label>Employee Id</label>
-          <input type="text" class="form-control" placeholder="Enter Password" formControlName='empCode'>
+          <input type="text" class="form-control" placeholder="Enter Employee ID" formControlName='empCode'>
           <label>Passcode</label>
-          <input type="text" placeholder="Enter Password" class="form-control" formControlName="passCode">
+          <input type="password" placeholder="Enter Password" class="form-control" formControlName="passCode">
           <button class="btn btn-warning mt-5" (click)="login('employee')" [disabled]="employeeFormGroup.invalid">
-            Login
+            Login 
           </button>
         </form>
       </div>

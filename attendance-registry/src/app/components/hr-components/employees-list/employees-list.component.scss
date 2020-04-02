@@ -1,0 +1,13 @@
+.heading-name {
+    font-family: 'Sen', sans-serif;
+    margin-left: 12px;
+    text-transform: capitalize;
+}
+body
+{
+    margin: 0px;
+}
+::ng-deep .description {
+    font-size: 15px;
+    opacity: 0.7;
+}
