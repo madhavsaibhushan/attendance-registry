@@ -24,7 +24,6 @@ export class HrMenuComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem('token'),'token')
    }
 
   routeToPage(pageName) {
