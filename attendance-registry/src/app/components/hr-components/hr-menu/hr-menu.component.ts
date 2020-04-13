@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-hr-menu',
@@ -18,16 +19,19 @@ export class HrMenuComponent implements OnInit {
       title: 'Attendance Report'
     },
     {
-      title:'List of Employess'
+      title: 'List of Employess'
+    },
+    {
+      title: 'Log Out'
     }
   ]
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private apiService: ApiService) { }
 
   ngOnInit() {
-   }
+  }
 
   routeToPage(pageName) {
-    console.log(pageName)
     switch (pageName) {
       case this.listOfMenuOptions[0].title:
         this.router.navigate(['hr/add-user']);
@@ -38,8 +42,20 @@ export class HrMenuComponent implements OnInit {
       case this.listOfMenuOptions[2].title:
         this.router.navigate(['hr/report']);
         break;
-        case this.listOfMenuOptions[3].title:
-          this.router.navigate(['hr/employees-list'])
+      case this.listOfMenuOptions[3].title:
+        this.router.navigate(['hr/employees-list']);
+        break;
+      case this.listOfMenuOptions[4].title:
+        this.logOut();
+        break;
+
     }
+  }
+  logOut() {
+    this.apiService.post('employees/logout', {}).subscribe((res) => {
+      this.router.navigateByUrl('/')
+      console.log(res)
+      localStorage.setItem('token', null)
+    })
   }
 }

@@ -17,12 +17,12 @@ export class LoginpageComponent implements OnInit {
     private httpClient: HttpClient,
     private fb: FormBuilder,
     public utilService: UtilService,
-    private apiService:ApiService
+    private apiService: ApiService
   ) { }
   employeeFormGroup: FormGroup
   ngOnInit() {
     this.initForm()
-    localStorage.setItem('token',null)
+    localStorage.setItem('token', null)
   }
   initForm() {
     this.employeeFormGroup = this.fb.group({
@@ -32,40 +32,41 @@ export class LoginpageComponent implements OnInit {
   }
 
 
-  async  login(type) {
-    if (type === 'employee') {
-      const payload = {
-        empName: this.employeeFormGroup.get('empCode').value,
-        empPassword: this.employeeFormGroup.get('passCode').value,
-        type: 'something'
-      }
-      const loginStatus: any = await this.commonLoginRequest(payload).catch((err) => {
-        this.employeeFormGroup.setErrors({wrongCredentials:true})
-        return this.utilService.presentToast('Unable to login')
-      })
-      if (loginStatus.status = "Authorized") {
-        return this.router.navigate(['attendance'])
-      }
+  login(type) {
+    type === 'employee' ? this.employeeLogin() : this.hrLogin()
+  }
+  async hrLogin() {
+    const payload = {
+      empName: this.employeeFormGroup.get('empCode').value,
+      empPassword: this.employeeFormGroup.get('passCode').value,
+      type: 'hr'
     }
-    if (type === 'hr') {
-      const payload = {
-        empName: this.employeeFormGroup.get('empCode').value,
-        empPassword: this.employeeFormGroup.get('passCode').value,
-        type: 'hr'
-      }
-      const loginStatus: any = await this.commonLoginRequest(payload).catch((err) => {
-        this.employeeFormGroup.setErrors({wrongCredentials:true})
-      
-        return this.utilService.presentToast('Unable to login')
-      })
-      console.log(loginStatus)
-      if (loginStatus.status = "Authorized") {
-        localStorage.setItem('token',loginStatus.token)
-        return this.router.navigate(['hr'])
-      }
-
+    const loginStatus: any = await this.commonLoginRequest(payload).catch((err) => {
+      this.employeeFormGroup.setErrors({ wrongCredentials: true })
+      return this.utilService.presentToast('Unable to login')
+    })
+    if (loginStatus.status = "Authorized") {
+      localStorage.setItem('token', loginStatus.token)
+      this.apiService.changeInHeader.next(true)
+      return this.router.navigate(['hr'])
     }
   }
+  async employeeLogin() {
+    const payload = {
+      empName: this.employeeFormGroup.get('empCode').value,
+      empPassword: this.employeeFormGroup.get('passCode').value,
+      type: 'employee'
+    }
+    const loginStatus: any = await this.commonLoginRequest(payload).catch((err) => {
+      this.employeeFormGroup.setErrors({ wrongCredentials: true })
+      return this.utilService.presentToast('Unable to login')
+    })
+    if (loginStatus.status = "Authorized") {
+      this.apiService.changeInHeader.next(true)
+      return this.router.navigate(['attendance'])
+    }
+  }
+
   commonLoginRequest(payload) {
     return this.apiService.post('employees/login/hr', payload).toPromise()
   }

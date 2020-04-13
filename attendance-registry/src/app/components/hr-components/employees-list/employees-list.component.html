@@ -1,5 +1,5 @@
 <ion-content class="m-0">
-  <ion-virtual-scroll [items]="items" approxItemHeight="200px">
+  <ion-virtual-scroll [items]="items" approxItemHeight="400px">
     <ion-list *virtualItem="let item; let itemBounds = bounds;">
       <div>
       </div>
@@ -17,9 +17,17 @@
                 <div class="col-10">
                   <div class="row mb-2">
                     <div class="col-12">
-                      <p class="heading-name m-0 ml-2 mt-2">
-                        {{item.empName}}
-                      </p>
+                      <div class="row">
+                        <div class="col-10" (click)="update(item)">
+                          <p class="heading-name m-0 ml-2 mt-2">
+                            {{item.empName}}
+                          </p>
+                        </div>
+                        <div class="col-2 text-right" (click)="deleteEmployee(null,item)">
+                          <span class='mdi mdi-delete'></span>
+                        </div>
+                      </div>
+
                     </div>
                     <div class="col-12">
                       <div class="row">
@@ -54,3 +62,15 @@
     </ion-list>
   </ion-virtual-scroll>
 </ion-content>
+<ng-template #deletedialog>
+  <div class="div">
+    <p>Are You sure to Delete</p>
+    <ion-button color='light' (click)="deleteEmployee('yes')">
+      Yes
+    </ion-button>
+    <ion-button color="danger" (click)="deleteEmployee('no')">
+      No
+    </ion-button>
+
+  </div>
+</ng-template>

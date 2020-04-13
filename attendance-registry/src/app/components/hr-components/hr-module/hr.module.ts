@@ -11,6 +11,7 @@ import { EmployeesListComponent } from '../employees-list/employees-list.compone
 import { HttpClientModule } from '@angular/common/http';
 import { UtilService } from 'src/app/services/util-service.service';
 import { ApiService } from 'src/app/services/api.service';
+import { MatDialogModule } from '@angular/material';
 const routes: Routes = [{
   path: '',
   component: HrMenuComponent
@@ -46,6 +47,7 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatDialogModule,
     HttpClientModule,
     RouterModule.forChild(routes),
     IonicModule.forRoot(),
